@@ -10,7 +10,7 @@ describe Bandicoot do
 
   describe '.scrap' do
     it 'adds attributes' do
-      expect(TestClass.config.attributes.size).to eq 2
+      expect(TestClass.config.attributes.size).to eq 1
     end
   end
 
