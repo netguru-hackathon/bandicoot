@@ -5,7 +5,7 @@ require 'active_support/all'
 
 # Your code goes here...
 module Bandicoot
-  attr_accessor :config
+  attr_reader :config
 
   def self.included(receiver)
     config = Config.new
