@@ -3,10 +3,26 @@ require 'nokogiri'
 
 module Bandicoot
   module Processor
-    attr_accessor :
+    attr_accessor :browser, :content
+
+    def boot_browser
+      browser = Watir::Browser.new :firefox
+      browser.goto Config.paginate_url
+    end
+
     def crawl
-      self.browser = Watir::Browser.new :firefox
-      browser.goto 'http://google.com'
+      boot_browser
+    end
+
+    private
+
+
+    def exists?(element_path)
+      content.at_css(element_path).present?
+    end
+
+    def parse_content
+      browser.goto paginate_url
       Nokogiri::HTML.parse browser.html
     end
   end
