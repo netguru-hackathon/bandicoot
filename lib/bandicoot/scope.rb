@@ -1,6 +1,6 @@
 module Bandicoot
   class Scope
-    attr_reader :name, :attributes
+    attr_accessor :name, :attributes, :css
   
     def initialize(name, css)
       @attributes = []
