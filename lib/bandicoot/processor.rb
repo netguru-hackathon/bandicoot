@@ -24,7 +24,7 @@ module Bandicoot
     end
 
     def go_to_the_next_page
-      browser.a(css:config.next_page_css_path).link.when_present.click
+      browser.a(css:config.next_page_css_path).click
     end
 
 
