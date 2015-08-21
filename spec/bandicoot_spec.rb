@@ -10,7 +10,7 @@ describe Bandicoot do
 
   describe '.scrap' do
     it 'adds attributes' do
-      expect(TestClass.config.scopes[0].attributes.size).to eq 2
+      expect(TestClass.config.scopes[0].attributes.size).to eq 3
     end
   end
 
@@ -28,8 +28,9 @@ describe Bandicoot do
 
   describe '#crawl' do
     it "returns scraped data" do
-      puts TestClass.new.crawl
-      expect(true).to eq(true)
+      results = TestClass.new.crawl
+      p results
+      expect(results).not_to be_nil
     end
   end
 end
