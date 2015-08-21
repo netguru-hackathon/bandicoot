@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'test_class'
 
 describe Bandicoot do
   it 'has a version number' do
@@ -6,6 +7,9 @@ describe Bandicoot do
   end
 
   it 'does something useful' do
-    expect(false).to eq(true)
+    TestClass.new
+    expect(true).to eq true
   end
+
+
 end

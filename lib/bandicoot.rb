@@ -1,5 +1,15 @@
 require "bandicoot/version"
+require "bandicoot/dsl"
 
+
+# Your code goes here...
 module Bandicoot
-  # Your code goes here...
+  
+  module InstanceMethods
+  end
+  
+  def self.included(receiver)
+    receiver.extend Bandicoot::Dsl
+  end
 end
+
