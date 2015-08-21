@@ -7,7 +7,7 @@ module Bandicoot
 
     def boot_browser
       browser = Watir::Browser.new :firefox
-      browser.goto Config.paginate_url
+      browser.goto self.class.config.url
     end
 
     def crawl
@@ -19,7 +19,7 @@ module Bandicoot
 
     def exists?(element_path)
       content.at_css(element_path).present?
-    end
+    end 
 
     def parse_content
       browser.goto paginate_url

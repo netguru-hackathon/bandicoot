@@ -10,19 +10,19 @@ describe Bandicoot do
 
   describe '.scrap' do
     it 'adds attributes' do
-      expect(TestClass.attributes.size).to eq 2
+      expect(TestClass.config.attributes.size).to eq 2
     end
   end
 
   describe '.url' do
     it 'returns url' do
-      expect(TestClass.url).to eq 'http://www.matras.pl/artykuly-szkolne/worki,k,1222?utm_source=Matras_wewn&utm_medium=www&utm_campaign=link_menu'
+      expect(TestClass.config.url).to eq 'http://www.matras.pl/artykuly-szkolne/worki,k,1222?utm_source=Matras_wewn&utm_medium=www&utm_campaign=link_menu'
     end
   end
 
   describe '.next_page_css_path' do
     it 'returns css' do
-      expect(TestClass.next_page_css_path).to eq('div.pages ol li a')
+      expect(TestClass.config.next_page_css_path).to eq('div.pages ol li a')
     end
   end
 

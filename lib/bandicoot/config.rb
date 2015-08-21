@@ -1,7 +1,7 @@
 class Config
-  attr_accessor :paginate_url, :attributes
+  attr_accessor :next_page_css_path, :attributes, :url
 
   def initialize
-    attributes = []
+    self.attributes = []
   end
 end
