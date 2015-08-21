@@ -8,6 +8,8 @@ module Bandicoot
 
     def attributes
       @attributes ||= []
+    end
+
     def scrap(options = {})
     end
 
