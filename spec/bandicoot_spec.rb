@@ -6,10 +6,16 @@ describe Bandicoot do
     expect(Bandicoot::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    TestClass.new.result
-    expect(true).to eq true
+  describe '.scrap' do
+    it 'adds attributes' do
+      expect(TestClass.attributes.size).to eq 2
+    end
   end
 
-
+  describe '#crawl' do
+    it "returns scraped data" do
+      puts TestClass.new.crawl
+      expect(TestClass.new.crawl).not_to be_nil
+    end
+  end
 end

@@ -1,7 +1,12 @@
+require 'watir'
+require 'nokogiri'
+
 module Bandicoot
   module Processor
-    def result
-      self.class.attributes
+    def crawl
+      browser = Watir::Browser.new :firefox
+      browser.goto 'http://google.com'
+      Nokogiri::HTML.parse browser.html
     end
   end
 end
