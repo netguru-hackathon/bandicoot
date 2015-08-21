@@ -5,5 +5,6 @@ class TestClass
 
   scrap :first_name, css: '.first-name'
   scrap :last_name, css: '.last-name'
-  paginate_url 'http://www.matras.pl/artykuly-szkolne/worki,k,1222?utm_source=Matras_wewn&utm_medium=www&utm_campaign=link_menu', next_page_css_path: '.next'
+  paginate_url 'http://www.matras.pl/artykuly-szkolne/worki,k,1222?utm_source=Matras_wewn&utm_medium=www&utm_campaign=link_menu', 
+    next_page_css_path: 'div.pages ol li a'
 end

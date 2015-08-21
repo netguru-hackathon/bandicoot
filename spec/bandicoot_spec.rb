@@ -22,7 +22,7 @@ describe Bandicoot do
 
   describe '.next_page_css_path' do
     it 'returns css' do
-      expect(TestClass.next_page_css_path).to eq('.next')
+      expect(TestClass.next_page_css_path).to eq('div.pages ol li a')
     end
   end
 
