@@ -11,7 +11,7 @@ module Bandicoot
     def crawl
       boot_browser
       config.scopes.each_with_object([]) do |scope, result|
-        result << { "#{scope.name}" => process_scope(scope) }
+        result << process_scope(scope)
       end
     end
 
@@ -26,9 +26,9 @@ module Bandicoot
     end
 
     def process_scope(scope)
-      scoped_contents(scope.css).each_with_object({}) do |scoped_content, data|
-        scope.attributes.each do |attr|
-          data[attr.name] << scoped_content.at_css(attr.css_path).text.strip.chomp
+      scoped_contents(scope.css).each_with_object([]) do |scoped_content, scoped_data|
+        scoped_data << scope.attributes.each_with_object({}) do |attr, data|
+          data[attr.name] = scoped_content.at_css(attr.css_path).text.strip.chomp
         end
       end
     end
