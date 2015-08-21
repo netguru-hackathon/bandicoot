@@ -6,6 +6,10 @@ require 'bandicoot/processor'
 require 'bandicoot/config'
 require 'bandicoot/scope'
 require 'active_support/all'
+require 'watir'
+require 'nokogiri'
+require 'pry'
+
 
 # Your code goes here...
 module Bandicoot

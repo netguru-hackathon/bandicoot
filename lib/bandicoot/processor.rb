@@ -1,41 +1,38 @@
-require 'watir'
-require 'nokogiri'
-
 module Bandicoot
   module Processor
     attr_accessor :browser, :content
 
-    def crawl      
+    def boot_browser
       self.browser = Watir::Browser.new
-      
-      content = parse_content
-      
-
-      result = config.scopes.map do | scope|
-        process_scope(content, scope)
-      end
-
-      puts result
-      result
+      self.browser.goto config.url
+      parse_content
     end
 
-    private
+    def crawl
+      boot_browser
+      begin
+        @final_result = config.scopes.each_with_object([]) do |scope, result|
+          result << { "#{scope.name}" => process_scope(scope) }
+        end
+      end unless exists?(config.next_page_css_path)
+      p @final_result
+    end
+
+    def click_new_page
+      # browser.click(config.next_page_css_path)
+    end
+
+    # private
 
     def config
       self.class.config
     end
 
-    def process_scope(content, scope)
-      scope_data = content.css(scope.css)
-      puts scope_data
-      scope_data.map do |data|
-        result = {}
+    def process_scope(scope)
+      scoped_contents(scope.css).each_with_object([]) do |scoped_content, data|
         scope.attributes.each do |attr|
-          puts data.css(attr.css_path).text
-          result[attr.name] = data.css(attr.css_path).text
+          data << scoped_content.at_css(attr.css_path).text.strip.chomp
         end
-        result
-        puts result
       end
     end
 
@@ -44,8 +41,11 @@ module Bandicoot
     end 
 
     def parse_content
-      browser.goto config.url
-      Nokogiri::HTML.parse browser.html
+      self.content = Nokogiri::HTML.parse(browser.html)
+    end
+
+    def scoped_contents(css_path)
+      content.css(css_path)
     end
   end
 end
