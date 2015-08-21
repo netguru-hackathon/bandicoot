@@ -6,8 +6,8 @@ require 'bandicoot/version'
 Gem::Specification.new do |spec|
   spec.name          = "bandicoot"
   spec.version       = Bandicoot::VERSION
-  spec.authors       = ["Jacek Adamek"]
-  spec.email         = ["jacek.adamek@netguru.pl"]
+  spec.authors       = ["Jacek Adamek", "Filip Bartuzi"]
+  spec.email         = ["jacek.adamek@netguru.co", "filip.bartuzi@netguru.co"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
