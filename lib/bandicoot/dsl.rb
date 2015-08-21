@@ -9,15 +9,12 @@ module Bandicoot
     def attributes
       @attributes ||= []
     end
-
-    def scrap(options = {})
-    end
-
+ 
     def paginate_url(url, next_page_path:)
-      next_page_path = next_page_path
-      url = origin_url = url
+      self.next_page_path = next_page_path
+      self.url = url
     end
-
+    
     attr_accessor :next_page, :url, :origin_url, :next_page_path
   end
 end

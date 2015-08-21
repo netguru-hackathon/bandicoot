@@ -12,6 +12,12 @@ describe Bandicoot do
     end
   end
 
+  describe '.url' do
+    it 'sets url' do
+      expect(TestClass.url).to eq('http://google.com', next_page_path: 'next')
+    end
+  end
+
   describe '#crawl' do
     it "returns scraped data" do
       puts TestClass.new.crawl
