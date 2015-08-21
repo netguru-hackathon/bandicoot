@@ -7,7 +7,7 @@ describe Bandicoot do
   end
 
   it 'does something useful' do
-    TestClass.new
+    TestClass.new.result
     expect(true).to eq true
   end
 
