@@ -28,7 +28,9 @@ describe Bandicoot do
 
   describe '#crawl' do
     it "returns scraped data" do
-      expect(TestClass.new.crawl).not_to be_nil
+      results = TestClass.new.crawl
+      p results
+      expect(result).not_to be_nil
     end
   end
 end

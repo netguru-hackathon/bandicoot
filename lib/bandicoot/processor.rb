@@ -10,12 +10,9 @@ module Bandicoot
 
     def crawl
       boot_browser
-      begin
-        @final_result = config.scopes.each_with_object([]) do |scope, result|
-          result << { "#{scope.name}" => process_scope(scope) }
-        end
-      end unless exists?(config.next_page_css_path)
-      p @final_result
+      config.scopes.each_with_object([]) do |scope, result|
+        result << { "#{scope.name}" => process_scope(scope) }
+      end
     end
 
     def click_new_page
