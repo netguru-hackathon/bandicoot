@@ -15,10 +15,8 @@ module Bandicoot
 
     def paginate_url(url, next_page_path:)
       next_page_path = next_page_path
-      url = url
+      url = origin_url = url
     end
-
-    private
 
     attr_accessor :next_page, :url, :origin_url, :next_page_path
   end
