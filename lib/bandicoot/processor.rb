@@ -26,9 +26,9 @@ module Bandicoot
     end
 
     def process_scope(scope)
-      scoped_contents(scope.css).each_with_object([]) do |scoped_content, data|
+      scoped_contents(scope.css).each_with_object({}) do |scoped_content, data|
         scope.attributes.each do |attr|
-          data << scoped_content.at_css(attr.css_path).text.strip.chomp
+          data[attr.name] << scoped_content.at_css(attr.css_path).text.strip.chomp
         end
       end
     end
