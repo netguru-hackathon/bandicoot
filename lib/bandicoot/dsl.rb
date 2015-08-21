@@ -14,7 +14,7 @@ module Bandicoot
     end
 
     def paginate_url(url, next_page_path:)
-      next_page_path = next_page
+      next_page_path = next_page_path
       url = url
     end
 
