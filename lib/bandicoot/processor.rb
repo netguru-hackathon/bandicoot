@@ -10,14 +10,24 @@ module Bandicoot
 
     def crawl
       boot_browser
-      config.scopes.each_with_object([]) do |scope, result|
-        result << process_scope(scope)
+      result = Hash.new
+      loop do
+        config.scopes.each do |scope|
+          result[scope.name] ||= []
+          result[scope.name] << process_scope(scope)
+        end
+        go_to_the_next_page
+        parse_content
       end
+    rescue Watir::Exception::UnknownObjectException => e
+      result
     end
 
-    def click_new_page
-      # browser.click(config.next_page_css_path)
+    def go_to_the_next_page
+      binding.pry
+      browser.a(css:config.next_page_css_path).link.when_present.click
     end
+
 
     # private
 
