@@ -10,7 +10,7 @@ describe Bandicoot do
 
   describe '.scrap' do
     it 'adds attributes' do
-      expect(TestClass.config.attributes.size).to eq 1
+      expect(TestClass.config.scopes[0].attributes.size).to eq 2
     end
   end
 
@@ -22,7 +22,7 @@ describe Bandicoot do
 
   describe '.next_page_css_path' do
     it 'returns css' do
-      expect(TestClass.config.next_page_css_path).to eq('div.pages ol li a')
+      expect(TestClass.config.next_page_css_path).to eq('.product-name a')
     end
   end
 

@@ -1,9 +1,10 @@
 require 'bandicoot/attribute'
+require 'bandicoot/scope'
 
 module Bandicoot
   module DSL
     def scrap(attr_name, css:)
-      config.buffered_attributes << Attribute.new(attr_name, css)
+      @current_scope.attributes << Attribute.new(attr_name, css)
     end
 
     def item(scope_name, &block)
@@ -14,6 +15,13 @@ module Bandicoot
     def paginate_url(url, next_page_css_path:)
       config.next_page_css_path = next_page_css_path
       config.url = url
+    end
+
+    def scope(name, css)
+      @current_scope = Scope.new(name, css)
+      config.scopes << @current_scope
+      yield
+      @current_scope = nil
     end
 
     def config
