@@ -1,9 +1,10 @@
-require "bandicoot/config"
-require "bandicoot/attribute"
-require "bandicoot/version"
-require "bandicoot/dsl"
-require "bandicoot/processor"
-require "bandicoot/config"
+require 'bandicoot/config'
+require 'bandicoot/attribute'
+require 'bandicoot/version'
+require 'bandicoot/dsl'
+require 'bandicoot/processor'
+require 'bandicoot/config'
+require 'bandicoot/scope'
 require 'active_support/all'
 
 # Your code goes here...

@@ -12,10 +12,16 @@ module Bandicoot
 
     def crawl
       boot_browser
+      begin
+        scrap_attributes
+      end while exists?(config.next_page_css_path)
     end
 
     private
 
+    def scrap_attributes
+      
+    end
 
     def exists?(element_path)
       content.at_css(element_path).present?
