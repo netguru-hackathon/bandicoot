@@ -2,9 +2,11 @@ require 'spec_helper'
 require 'test_class'
 
 describe Bandicoot do
-  it 'has a version number' do
-    expect(Bandicoot::VERSION).not_to be nil
-  end
+  # describe 'version' do
+  #   it 'has a version number' do
+  #     expect(Bandicoot::VERSION).not_to be_nil
+  #   end
+  # end
 
   describe '.scrap' do
     it 'adds attributes' do
@@ -13,14 +15,19 @@ describe Bandicoot do
   end
 
   describe '.url' do
-    it 'sets url' do
-      expect(TestClass.url).to eq('http://google.com', next_page_path: 'next')
+    it 'returns url' do
+      expect(TestClass.url).to eq 'http://www.matras.pl/artykuly-szkolne/worki,k,1222?utm_source=Matras_wewn&utm_medium=www&utm_campaign=link_menu'
+    end
+  end
+
+  describe '.next_page_css_path' do
+    it 'returns css' do
+      expect(TestClass.next_page_css_path).to eq('.next')
     end
   end
 
   describe '#crawl' do
     it "returns scraped data" do
-      puts TestClass.new.crawl
       expect(TestClass.new.crawl).not_to be_nil
     end
   end
