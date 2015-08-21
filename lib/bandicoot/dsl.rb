@@ -10,11 +10,11 @@ module Bandicoot
       @attributes ||= []
     end
  
-    def paginate_url(url, next_page_path:)
+    def paginate_url(url, next_page_css_path:)
       self.next_page_path = next_page_path
       self.url = url
     end
     
-    attr_accessor :next_page, :url, :origin_url, :next_page_path
+    attr_accessor :next_page, :url, :origin_url, :next_page_css_path
   end
 end
