@@ -1,3 +1,5 @@
+require "bandicoot/config"
+require "bandicoot/attribute"
 require "bandicoot/version"
 require "bandicoot/dsl"
 require "bandicoot/processor"
