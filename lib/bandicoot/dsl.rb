@@ -1,5 +1,5 @@
 module Bandicoot
-  module Dsl
+  module DSL
     Attribute = Struct.new(:attr_name, :css)
 
     def scrap(attr_name, css:)
