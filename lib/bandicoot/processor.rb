@@ -3,10 +3,11 @@ require 'nokogiri'
 
 module Bandicoot
   module Processor
+    attr_accessor :
     def crawl
-      # browser = Watir::Browser.new :firefox
-      # browser.goto
-      # Nokogiri::HTML.parse browser.html
+      self.browser = Watir::Browser.new :firefox
+      browser.goto 'http://google.com'
+      Nokogiri::HTML.parse browser.html
     end
   end
 end
