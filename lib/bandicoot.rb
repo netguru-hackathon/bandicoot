@@ -7,6 +7,6 @@ require "bandicoot/processor"
 module Bandicoot
   def self.included(receiver)
     receiver.extend Bandicoot::DSL
-    receiver.send :include, Bandicoot::Processor
+    receiver.include Bandicoot::Processor
   end
 end
