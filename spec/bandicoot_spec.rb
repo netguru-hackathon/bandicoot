@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'test_class'
-
+require 'awesome_print'
 describe Bandicoot do
   # describe 'version' do
   #   it 'has a version number' do
@@ -28,9 +28,10 @@ describe Bandicoot do
 
   describe '#crawl' do
     it "returns scraped data" do
-      results = TestClass.new.crawl
-      p results
-      expect(results).not_to be_nil
+      a = TestClass.new.crawl
+      ap a
+      binding.pry
+      expect(true).to eq(true)
     end
   end
 end
